@@ -1,0 +1,99 @@
+/* ==========================================
+   1. الأساسيات والخطوط العامة
+   ========================================== */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #111827;
+    color: #f3f4f6;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   2. تأثير زجاجي فخم للـ Navbar (الهيدر العلوي)
+   ========================================== */
+header, nav {
+    backdrop-filter: blur(10px);
+    background-color: rgba(17, 24, 39, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   3. تأثيرات الكروت الاحترافية (Cards & Glassmorphism)
+   ========================================== */
+div[class*="rounded"] {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+div[class*="rounded"]:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -15px rgba(234, 179, 8, 0.2);
+    border-color: rgba(234, 179, 8, 0.6) !important;
+}
+
+/* إضاءة خفيفة تظهر على حدود الكارت وقت المرور عليه */
+div[class*="rounded"]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    transition: border 0.3s ease;
+    pointer-events: none;
+}
+
+/* ==========================================
+   4. تنسيق الأزرار (Buttons & Glow Effects)
+   ========================================== */
+a, button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover, button:hover {
+    filter: brightness(1.15);
+    box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+}
+
+/* ==========================================
+   5. عناوين الأقسام (Section Headings)
+   ========================================== */
+h2, h3 {
+    letter-spacing: -0.5px;
+}
+
+/* خط تحذيري ذهبي أنيق تحت العناوين الكبرى */
+.section-title-line {
+    position: relative;
+    display: inline-block;
+}
+.section-title-line::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to left, #f59e0b, transparent);
+    border-radius: 2px;
+}
+
+/* ==========================================
+   6. تخصيص شريط التمرير (Scrollbar) ليكون فخماً
+   ========================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111827;
+}
+::-webkit-scrollbar-thumb {
+    background: #374151;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b;
+}
